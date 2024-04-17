@@ -41,5 +41,10 @@ if (liList.length > 0) {
 			return acc + cVal
 		}, 0)
 
-	console.log(timesList)
+	let seconds = timesList
+	const hours = Math.floor(seconds / 3600)
+	seconds = seconds % 3600
+	const minutes = Math.floor(seconds / 60)
+	seconds = seconds % 60
+	console.log(hours, minutes, seconds)
 }
