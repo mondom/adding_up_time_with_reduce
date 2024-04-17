@@ -26,15 +26,20 @@
 const liList = [...document.querySelectorAll('[data-time]')]
 // console.log(liList)
 
-const timesList = liList
-	.map(li => li.dataset.time)
-	.map(time => {
-		const [mins, secs] = time.split(':').map(parseFloat)
-		// console.log(mins, secs)
-        const seconds = mins * 60 + secs
-        console.log(seconds);
-	})
+if (liList.length > 0) {
+	const timesList = liList
+		.map(li => li.dataset.time)
+		.map(time => {
+			const [mins, secs] = time.split(':').map(parseFloat)
+			// console.log(mins, secs)
+			return mins * 60 + secs
+			// const sumSec = seconds.reduce(function (acc, cValue) {
+			// 	return acc + cValue
+			// })
+		})
+		.reduce(function (acc, cVal) {
+			return acc + cVal
+		}, 0)
 
-
-// console.log(mins)
-// console.log(secs)
+	console.log(timesList)
+}
