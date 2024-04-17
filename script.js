@@ -23,6 +23,18 @@
 
 // console.log(hours,mins,secondsLeft);
 
+const liList = [...document.querySelectorAll('[data-time]')]
+// console.log(liList)
 
-const timesList = [...document.querySelectorAll('[data-time]')]
-console.log(timesList);
+const timesList = liList
+	.map(li => li.dataset.time)
+	.map(time => {
+		const [mins, secs] = time.split(':').map(parseFloat)
+		// console.log(mins, secs)
+        const seconds = mins * 60 + secs
+        console.log(seconds);
+	})
+
+
+// console.log(mins)
+// console.log(secs)
